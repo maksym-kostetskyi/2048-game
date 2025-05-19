@@ -23,7 +23,7 @@ This project is a personal portfolio adaptation of the classic 2048 game, create
 
 1. Clone the repository:
 
-`git clone` https://github.com/maksym-kostetskyi/the-met-landing.git
+`git clone` https://github.com/maksym-kostetskyi/2048-game
 `cd project-name`
 
 2. Install dependencies:
