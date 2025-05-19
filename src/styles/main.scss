@@ -1,4 +1,4 @@
-@import './vars';
+@import "./vars";
 
 body {
   margin: 0;
@@ -29,47 +29,47 @@ body {
   }
 
   &--2 {
-    background: $background-cell--2;
+    background: $background-cell-2;
   }
 
   &--4 {
-    background: $background-cell--4;
+    background: $background-cell-4;
   }
 
   &--8 {
-    background: $background-cell--8;
+    background: $background-cell-8;
   }
 
   &--16 {
-    background: $background-cell--16;
+    background: $background-cell-16;
   }
 
   &--32 {
-    background: $background-cell--32;
+    background: $background-cell-32;
   }
 
   &--64 {
-    background: $background-cell--64;
+    background: $background-cell-64;
   }
 
   &--128 {
-    background: $background-cell--128;
+    background: $background-cell-128;
   }
 
   &--256 {
-    background: $background-cell--256;
+    background: $background-cell-256;
   }
 
   &--512 {
-    background: $background-cell--512;
+    background: $background-cell-512;
   }
 
   &--1024 {
-    background: $background-cell--1024;
+    background: $background-cell-1024;
   }
 
   &--2048 {
-    background: $background-cell--2048;
+    background: $background-cell-2048;
   }
 }
 
@@ -260,6 +260,8 @@ h1 {
 }
 
 .game-hint-text {
+  color: $game-hint-text;
+
   @media screen and (min-width: 1024px) {
     display: none;
   }

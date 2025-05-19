@@ -14,15 +14,15 @@ const SWIPE_THRESHOLD = 30;
 let touchStartX = 0;
 let touchStartY = 0;
 
-Game.prototype.getState = function () {
+Game.prototype.getState = function() {
   return this.state;
 };
 
-Game.prototype.getScore = function () {
+Game.prototype.getScore = function() {
   return this.score;
 };
 
-Game.prototype.getStatus = function () {
+Game.prototype.getStatus = function() {
   if (this.state === Game.prototype.initialState) {
     return 'idle';
   }
@@ -40,7 +40,7 @@ Game.prototype.getStatus = function () {
   return 'playing';
 };
 
-Game.prototype.moveLeft = function () {
+Game.prototype.moveLeft = function() {
   let wasMerged = false;
   const canMove = [true, true, true, true];
 
@@ -78,7 +78,7 @@ Game.prototype.moveLeft = function () {
   this.moveUtil();
 };
 
-Game.prototype.moveRight = function () {
+Game.prototype.moveRight = function() {
   let wasMerged = false;
   const canMove = [true, true, true, true];
 
@@ -116,7 +116,7 @@ Game.prototype.moveRight = function () {
   this.moveUtil();
 };
 
-Game.prototype.moveUp = function () {
+Game.prototype.moveUp = function() {
   let wasMerged = false;
   const canMove = [true, true, true, true];
 
@@ -163,7 +163,7 @@ Game.prototype.moveUp = function () {
   this.moveUtil();
 };
 
-Game.prototype.moveDown = function () {
+Game.prototype.moveDown = function() {
   let wasMerged = false;
   const canMove = [true, true, true, true];
 
@@ -210,7 +210,7 @@ Game.prototype.moveDown = function () {
   this.moveUtil();
 };
 
-Game.prototype.restart = function () {
+Game.prototype.restart = function() {
   this.state = [
     [0, 0, 0, 0],
     [0, 0, 0, 0],
@@ -228,14 +228,14 @@ Game.prototype.restart = function () {
   messageLose.className = 'message message-lose hidden';
 };
 
-Game.prototype.getRandomNumber = function () {
+Game.prototype.getRandomNumber = function() {
   const randomNumbersPool = [2, 2, 2, 2, 2, 2, 2, 2, 2, 4];
   const randomNumIndex = Math.floor(Math.random() * 10);
 
   return randomNumbersPool[randomNumIndex];
 };
 
-Game.prototype.addNumber = function () {
+Game.prototype.addNumber = function() {
   if (this.getEmptyCells().length !== 0) {
     const emptyCellsPool = this.getEmptyCells();
     const randomCellIndex = Math.floor(Math.random() * emptyCellsPool.length);
@@ -245,19 +245,19 @@ Game.prototype.addNumber = function () {
   }
 };
 
-Game.prototype.canMerge = function () {
+Game.prototype.canMerge = function() {
   for (let i = 0; i < this.state.length; i++) {
     for (let j = 0; j < this.state.length; j++) {
       if (
-        j < this.state.length - 1 &&
-        this.state[i][j] === this.state[i][j + 1]
+        j < this.state.length - 1
+        && this.state[i][j] === this.state[i][j + 1]
       ) {
         return true;
       }
 
       if (
-        i < this.state.length - 1 &&
-        this.state[i][j] === this.state[i + 1][j]
+        i < this.state.length - 1
+        && this.state[i][j] === this.state[i + 1][j]
       ) {
         return true;
       }
@@ -267,7 +267,7 @@ Game.prototype.canMerge = function () {
   return false;
 };
 
-Game.prototype.getEmptyCells = function () {
+Game.prototype.getEmptyCells = function() {
   const emptyCellsArray = [];
 
   for (let i = 0; i < this.state.length; i++) {
@@ -281,7 +281,7 @@ Game.prototype.getEmptyCells = function () {
   return emptyCellsArray;
 };
 
-Game.prototype.start = function () {
+Game.prototype.start = function() {
   if (this.getEmptyCells().length === this.state.length ** 2) {
     this.addNumber();
     this.addNumber();
@@ -291,7 +291,7 @@ Game.prototype.start = function () {
   }
 };
 
-Game.prototype.fillCells = function () {
+Game.prototype.fillCells = function() {
   const table = document.querySelector('.game-field');
   const tableCells = table.querySelectorAll('.field-cell');
 
@@ -305,15 +305,15 @@ Game.prototype.fillCells = function () {
       }
 
       if (this.state[i][j] !== 0) {
-        tableCells[cellndex].className =
-          `field-cell field-cell--${this.state[i][j]}`;
+        tableCells[cellndex].className
+          = `field-cell field-cell--${this.state[i][j]}`;
         tableCells[cellndex].innerHTML = this.state[i][j];
       }
     }
   }
 };
 
-Game.prototype.toggleButton = function () {
+Game.prototype.toggleButton = function() {
   if (this.getStatus() === 'idle') {
     startButton.className = 'button start';
     startButton.innerHTML = 'Start';
@@ -323,7 +323,7 @@ Game.prototype.toggleButton = function () {
   }
 };
 
-Game.prototype.moveUtil = function () {
+Game.prototype.moveUtil = function() {
   this.toggleButton();
   this.fillCells();
   score.innerHTML = this.score;
